@@ -19,7 +19,14 @@ node就设置成node*
 ```
 hostnamectl set-hostname master1
 ```
-- 所有机器需要设定/etc/hosts解析到所有集群主机()
+- 所有机器需要设定/etc/hosts解析到所有集群主机(ip地址填自己的)
+
+```
+119.27.168.122 master1
+118.25.229.56 node1
+```
+
+- 设置开机加载项与docker下载
 
 ```
 119.27.168.122 master1
