@@ -140,7 +140,7 @@ chmod +x /usr/local/bin/cfssl /usr/local/bin/cfssljson
 for NODE in "${!NodeArray[@]}"; do
     echo "--- $NODE ${NodeArray[$NODE]} ---"
 	scp ~/k8s-manual-files/k8s-file/kubernetes.tar.gz ${NodeArray[$NODE]}:/root/
-	ssh ${NodeArray[$NODE]} < /root/install_kubernetes_node.sh
+	ssh ${NodeArray[$NODE]} < /root/k8s-shell/install_kubernetes_node.sh
 done
 }
 
