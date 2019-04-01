@@ -33,6 +33,14 @@ git clone https://github.com/lc321/lc321.github.io.git ~/k8s-shell
 cd ~/k8s-shell
 ./k8s-common.sh
 ```
+
+- master上设置免密
+
+```
+ssh-keygen -t rsa
+ssh-copy-id master1
+ssh-copy-id node1
+```
   关机重启
 
 ## 2.2 开始安装
