@@ -1,136 +1,74 @@
-# Site settings
-title: lemonc
-SEOTitle: lemonc的博客 | Hux Blog
-header-img: img/home-bg.jpg
-email: lc.simple.mail@gmail.com
-description: "init blog"
-keyword: "lemonc,lc321"
-url: "https:/lc321.github.io"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+encoding: utf-8
 
-# Publish posts or collection documents with a future date.
-future: true
+# SEO相关信息
+title: TMaize Blog
+description: TMaize的个人博客
+keywords: TMaize,Blog,Java,Html,JavaScript
+author: TMaize
+footerText: 'Copyright © 2016 皖ICP备16016174号'
 
-# SNS settings
-RSS: false
-weibo_username:     lemonc
-zhihu_username:     lemonc
-github_username:    lemonc
-twitter_username:   lemonc
-#facebook_username:  huxpro
-#linkedin_username:  firstname-lastname-idxxxx
-
-
-
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
-permalink: pretty
-paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-# If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN  
-
-
-
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-# make sure you have this gem installed
-# `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
-
-
-
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
-markdown: kramdown
+# 这些不要动
+permalink: /posts/:year/:month/:day/:title.html
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
-  syntax_highlighter_opts:
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
+  auto_ids: true
+  input: GFM
+exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'cli.bat']
 
+# 域名配置
+# baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
+domainUrl: 'http://blog.tmaize.net'
+baseurl: ''
 
+# 吐个槽地址，会在chat页面中重定向到该地址
+tucaoUrl: https://support.qq.com/product/86335
 
-# Disqus settings
-disqus_username: hux
+# 菜单
+menu:
+  - title: 首页
+    url: /
+  - title: 归类
+    url: /pages/categories.html
+  - title: 搜索
+    url: /pages/search.html
+  - title: 友链
+    url: /pages/links.html
+  - title: 留言
+    url: /pages/chat.html
+  - title: 关于
+    url: /pages/about.html
 
-# Netease settings
-netease_comment: false
+# 点击页面文字冒出特效,不需要请设置为false
+extClickEffect: true
 
+# Google Adsense,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extAdsense: false
 
+# 腾讯MTA移动分析,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extMTA: true
 
-# Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
+# 百度收录自动推送,不需要请设置为false
+extBaidu: true
 
-# Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+# 数学公式支持，比较影响加载速度,不需要请设置为false
+extMath: false
 
-
-
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
-
-# Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
-
-
-# Progressive Web Apps
-chrome-tab-theme-color: "#000000"
-service-worker: true
-
-
-
-# MathJax rendering for layout:page (e.g. post preview)
-page-mathjax: false
-
-
-
-# Friends
-friends: [
-    {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
-        title: "乱序",
-        href: "http://mida.re/"
-    },{
-        title: "Sherry Wu",
-        href: "https://xuechundesign.github.io"
-    },{
-        title: "Luke 的自留地",
-        href: "http://hmqk1995.github.io"
-    },{
-        title: "Ebn's Blog",
-        href: "http://ebnbin.com/"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "JiyinYiyong",
-        href: "http://tiye.me/"
-    },{
-        title: "David's Game",
-        href: "https://www.ruoyaowu.com/"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
-    },{
-        title: "尹峰以为",
-        href: "http://ingf.github.io/"
-    }
-]
+# 友情链接
+links:
+  - title: TMaize的个人博客
+    url: http://blog.tmaize.net
+  - title: 文科中的技术宅
+    url: https://www.townwang.com
+  - title: Auuu Nya Blog
+    url: http://mu1er.cn
+  - title: 春风十里
+    url: https://www.geek-era.com
+  - title: 阿川的个人博客
+    url: https://achuan.io
+  - title: 魏文成博客
+    url: https://www.wwc.ren
+  - title: 06m
+    url: https://www.06m.me
+  - title: 达达知识
+    url: https://www.dadapush.com/
