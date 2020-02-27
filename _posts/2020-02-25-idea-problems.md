@@ -6,12 +6,12 @@ categories: [疑难杂症]
 
 #### 1.Windows Defender might be impacting your build performance.   
 &emsp;安装了最新的idea2019后发现每次导入项目出现如下warnning:  
-![](http://localhost:4000/img/in-post/post-solve-problems/post-idea-1.png)  
+![](post-idea-1.png)  
 *处理方法：*  
 * 找到windows安全中心
-![](http://localhost:4000/img/in-post/post-solve-problems/post-idea-1_2.png)  
+![](post-idea-1_2.png)  
 * 将报错目录添加到排除项  
-![](http://localhost:4000/img/in-post/post-solve-problems/post-idea-1_3.png)  
+![](post-idea-1_3.png)  
 
 
 
