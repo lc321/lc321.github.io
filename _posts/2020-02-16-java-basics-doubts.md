@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Java基础知识疑点
-categories: [学习笔记]
+categories: [Java]
 ---
 
 **1.boolean占字节数**   
@@ -49,7 +49,60 @@ IO的方式通常分为BIO、NIO、AIO：
 * this()与super()应放在构造器首行，否则编译器会报错  
 * this、super不能用在static方法中（this和super是属于对象范畴的东西，而静态方法是属于类范畴的东西）  
 
-**6.**
+**6.Arraylist.asList()使用**  
+我们可以使用Arraylist.asList()将一个数组转换为一个List集合，但实际上其底层仍是数组：  
+asList的返回对象是一个Arrays的内部类，并没有实现集合的修改方法。Arrays.asList体现的
+是适配器模式，只是转换接口，后台仍是数组。  
+> String[] str = snew String[]("app","pen");  
+> List list = Arrays.asList(str);
+使用list.add("other");运行时异常  
+使用str[0] = "another";list.get(0)也随之修改  
+如何正确的将数组转换为ArrayList?  
+> List list = new ArrayList<>(Arrays.asList("a","b","c"));
+
+**7.get和post两种请求的区别**  
+GET和POST的底层都是TCP/IP，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，
+导致他们在应用过程中体现出一些不同。比如：  
+- GET在浏览器回退时是无害的，而POST会再次提交请求。
+- GET产生的URL地址可以被Bookmark，而POST不可以
+- GET请求会被浏览器主动cache，而POST不会，除非手动设置。
+- GET请求只能进行url编码，而POST支持多种编码方式。
+- GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。
+- GET请求在URL中传送的参数是有长度限制的，而POST么有。
+- 对参数的数据类型，GET只接受ASCII字符，而POST没有限制。
+- GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。
+- GET参数通过URL传递，POST放在Request body中。  
+GET和POST还有一个重大区别：  
+GET产生一个TCP数据包；POST产生两个TCP数据包。  
+对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；  
+而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。  
+
+
+**8.会话跟踪技术**  
+- Cookie
+- URL重写
+- 隐藏的表单域
+- HttpSession  
+Cookie与Session的区别：  
+- 应用场景不同。  
+	- Cookie 一般用来保存用户信息，例如1.登陆过的用户信息；2.存放token值
+	- Session 的主要作用就是通过服务端记录用户的状态。例如购物车
+- 保存的地址不同
+	- Cookie 数据保存在客户端(浏览器端)
+	- Session 数据保存在服务器端
+	
+**9.反射机制**  
+JAVA 反射机制是指在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；
+对于任意一个对象，都能够调用它的任意一个方法和属性。  
+- Class.forName()传入类的路径获取Class对象
+- 反射的应用场景
+	- JDBC连接使用Class.forName()通过反射加载数据库驱动
+	- Spring IOC(动态加载管理Bean)以及AOP(动态代理)
+	- 动态配置实例属性
+	
+
+
+
 
 
 
